@@ -1,0 +1,315 @@
+.shopping-cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ 
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.shopping-cart-overlay--visible {
+  opacity: 1;
+  visibility: visible;
+  animation: fadeIn 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.shopping-cart {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.shopping-cart-tabs {
+  letter-spacing:0px;
+  font-family: PingFang SC;
+  font-weight: 500;
+}
+
+.shopping-cart-list-container {
+  flex: 1;
+  padding: 10px 20px 10px;
+  /* height: calc(100% - 200px); */
+  overflow-y: auto;
+}
+.shopping-cart-list-item {
+  overflow: hidden;  
+  border-radius: 12px;
+  padding: 20px !important;
+  display: flex;
+  justify-content: start !important;
+  transition: background-color 0.3s;
+}
+
+.shopping-cart-list-item:hover {
+  background-color: #f5f5f5;
+}
+.shopping-cart-item-checkbox{
+  position: relative;
+  transform: translateY(-100%);
+}
+.shopping-cart-list-item:hover .shopping-cart-remove-button {
+  display: inline-block;
+}
+.shopping-cart-list-item:hover .shopping-cart-item-price {
+  justify-content: space-between;
+}
+.shopping-cart-item-info {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.shopping-cart-item-repetition{
+  position: relative;
+  font-size: 14px;
+  color: #404040;
+  font-family: PingFang SC;
+  padding-left: 16px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+.shopping-cart-item-repetition::before {
+  content: '>';
+  position: absolute;
+  top: -1px;
+  left: 136px; 
+}
+.shopping-cart-item-info-price {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.shopping-cart-item-image {
+  border-radius: 5px;
+  width: 66px;
+  height: 66px;
+  margin-left: 16px;
+  margin-right: 10px;
+}
+.shopping-cart-item-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.disabled-item .shopping-cart-item-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  width: 66px;
+  height: 66px;
+  margin-left: 16px;
+  margin-right: 10px;
+  background-color: rgba(128, 128, 128, 0.5); /* 灰色遮罩，透明度 0.5 */
+  z-index: 1;
+  text-align: center;
+  line-height: 66px;
+  color: #FEFEFE;
+  font-weight: 500;
+  font-size: 14px;
+}
+.shopping-cart-item-details {
+  font-family: PingFang SC;
+  font-size: 16px;
+  color: #0D0D0D;
+  font-weight: 500;
+}
+.shopping-cart-item-details-id-type{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.shopping-cart-item-details-id{
+
+  font-size: 14px;
+  font-weight: normal;
+  color: #404040;
+}
+.shopping-cart-item-details-type{
+  position: relative;
+  font-size: 14px;
+  font-weight: normal;
+  color: #404040;
+  margin-left: 30px;
+}
+.shopping-cart-item-details-type::before {
+  position: absolute;
+  top: 4px;
+  left: -15px;
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 14px; /* 可根据需要调整高度 */
+  background-color: #ccc; /* 可根据需要调整颜色 */
+
+}
+.shopping-cart-item-price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 12px ;
+  margin-left: 16px
+}
+
+.shopping-cart-remove-button {
+  cursor: pointer;
+  display: none;
+  color: #0D0D0D; 
+}
+.shopping-cart-remove-button:hover{
+  color:#afadad;
+}
+.shopping-cart-divider {
+  margin: 0;
+}
+.shopping-cart-item-details-price-info{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.shopping-cart-item-details-author {
+  font-size: 14px;
+  font-weight: normal;
+  color:#404040  ;
+  margin-right: 10px;
+
+}
+.shopping-cart-item-details-price {
+  position: relative;
+  top: -2px;
+  font-size: 20px;
+  /* font-weight: 500; */
+  color:#0D0D0D  ; 
+  margin-right: 2px;
+}
+.shopping-cart-item-details-price-unit {
+  font-size: 14px;
+  font-weight: normal;
+  color:#404040  ;
+  padding-top: 2px;
+}
+.shopping-cart-footer {
+  background-color: white;
+  padding: 28px 40px
+}
+.shopping-cart-footer-top{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.shopping-cart-total-price {
+  display: flex;
+  align-items: center;
+
+}
+
+.shopping-cart-total-price-selected{
+  margin-right: 10px;
+  font-size: 14px;
+  font-family: PingFang SC;
+  color: #404040;
+
+}
+.shopping-cart-total-price-total{
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: PingFang SC;
+  color: #404040;  
+}
+.shopping-cart-total-price-total-num{
+  color: #EE4A4A;
+  font-size: 28px;
+  font-weight: 500;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+.shopping-cart-total-price-total-unit{
+  font-size: 14px;
+  font-weight: normal;
+  color:#404040  ;
+  padding-top: 5px;
+}
+.shopping-cart-buy-button-disabled {
+  cursor: not-allowed;
+ width: 100%;
+  height: 50px;
+  border-radius: 55px;
+  background-color: #cccccc;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-top: 16px;
+}
+.shopping-cart-buy-button-active {
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  border-radius: 55px;
+  background-color: #0d0d0d;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-top: 16px;
+}
+.shopping-cart--visible {
+  transform: translateX(0);
+  animation: slideIn 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.skeleton-container {
+  padding: 20px;
+}
+ 
+.skeleton-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+ 
+.skeleton-content {
+  flex: 1;
+  margin-left: 16px;
+}
+.shopping-cart-list-container {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+ 
+.shopping-cart-list-container.visible  {
+  opacity: 1;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
