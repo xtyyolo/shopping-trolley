@@ -13,11 +13,11 @@
 ### 安装依赖
 在项目根目录下，打开终端并执行以下命令来安装项目所需的依赖：
 ```bash
-npm install
+npm i or pnpm i
 ```
 2. 运行
 ```
-npm run dev
+npm run dev or pnpm run dev
 ```
 
 ## 项目主要结构
